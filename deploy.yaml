@@ -24,10 +24,3 @@ jobs:
       # Sync files to S3
       - name: Deploy to S3
         run: aws s3 sync . s3://cli-sw-project-s3-bucket --delete
-
-      # (Optional) Invalidate CloudFront cache so changes appear instantly
-      - name: Invalidate CloudFront cache
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id E30NGFD5HE08XB \
-            --paths "/*"
